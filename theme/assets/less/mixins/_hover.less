@@ -1,0 +1,11 @@
+.hover-focus(@content){
+  &:hover, &:focus{
+    @content();
+  }
+}
+
+.hover-focus-active(@content){
+  &:hover, &:focus, &.active, &.exp{
+  @content();
+  }
+}

@@ -1,0 +1,47 @@
+.shp-accordion-wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#accordion-content {
+    .shp-accordion {
+        padding-top: @line-height-computed;
+
+        .fade {
+            opacity: 1;
+        }
+
+        .shp-accordion-link {
+            font-size: @font-size-h2;
+            font-weight: bold;
+            color: @text-color;
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: center;
+            &::after {
+                justify-self: flex-end;
+                margin-left: auto;
+                &:extend(.shp-icon);
+                content: @icon-chevron-down-code;
+            }
+            span {
+                white-space: pre;
+            }
+        }
+
+        .shp-accordion-content {
+            display: none;
+            margin-top: @line-height-computed;
+        }
+
+        &.active {
+            .shp-accordion-link {
+                &::after {
+                    content: @icon-chevron-up-code;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.vote-name {
+    font-family: sans-serif;
+    .external-fonts-loaded &,
+    .blank-mode & {
+        font-family: @template-headings-font, sans-serif;
+    }
+}
+
+.vote-title {
+    color: @rating-active-color;
+}
+.vote-wrap {
+    border-color: @border-color;
+}
+.vote-content {
+    a {
+        color: @text-color;
+        &:hover {
+            color: @color-primary;
+        }
+    }
+}
+.vote-rating,
+.vote-admin-response {
+    color: @rating-default-color;
+}
+
+.vote-initials {
+    color: #fff;
+}

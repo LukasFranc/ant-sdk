@@ -1,0 +1,78 @@
+@smart-height: @input-height-base + (@padding-base-vertical * 2) + @font-size-base;
+
+.smart-labels-active .smart-label-wrapper {
+    position: relative;
+
+    label {
+        padding: 0 0 0 @padding-base-horizontal;
+        margin: 0;
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        position: absolute;
+        top: 0; /* todo: switch to top: 0 after T18084 release */
+        left: 0;
+        //transition
+        line-height: @smart-height;
+        font-size: @font-size-base;
+        opacity: 1;
+
+        .transition(-"all 0.2s, left 0s");
+    }
+
+    &.focused label,
+    &.populated label {
+        line-height: @font-size-smaller;
+        font-size: @font-size-smaller;
+        padding-top: calc(@padding-base-vertical * 2);
+        opacity: 0.5;
+    }
+
+    input {
+        padding-top: calc((@padding-base-vertical * 2) + @font-size-smaller);
+    }
+
+    input,
+    textarea {
+        .placeholder(transparent);
+        &:focus {
+            .placeholder();
+        }
+        &::placeholder {
+            .transition(color 0.2s);
+        }
+    }
+
+    select {
+        padding-top: calc(@padding-base-vertical + @font-size-smaller);
+    }
+
+    input,
+    select,
+    label,
+    .country-flags {
+        height: @smart-height;
+    }
+
+    .validator-msg,
+    .js-validator-msg {
+        margin-left: 0;
+        + input,
+        + select,
+        + .phone-combined-input {
+            margin-left: 0;
+        }
+    }
+
+    label[for="phone"] {
+        display: block;
+    }
+
+    .select-label {
+        pointer-events: none;
+    }
+
+    .form-group-tooltip {
+        top: 50%;
+    }
+}

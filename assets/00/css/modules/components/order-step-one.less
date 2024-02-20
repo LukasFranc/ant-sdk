@@ -1,0 +1,94 @@
+.radio-wrapper {
+    padding-left: round(@grid-gutter-width / 4);
+    padding-right: round(@grid-gutter-width / 4);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    &:last-child {
+        border-bottom-style: none;
+    }
+    input[type="radio"] + label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-top: round(@grid-gutter-width / 4);
+        padding-bottom: round(@grid-gutter-width / 4);
+        .sublabel {
+            display: block;
+            font-size: smaller;
+        }
+    }
+}
+
+.payment-logo,
+.payment-shipping-price {
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: right;
+    flex-basis: 80px;
+}
+
+.payment-shipping-price {
+    padding-left: round(@grid-gutter-width / 4);
+}
+
+.payment-info {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: auto;
+    padding-right: round(@grid-gutter-width / 4);
+    b {
+        display: inline-block;
+        padding-right: round(@grid-gutter-width / 4);
+        text-transform: @payment-shipping-case;
+    }
+}
+
+.not-possible-info {
+    display: none;
+    .inactive & {
+        display: inherit;
+    }
+}
+
+#payu_ .table-payu {
+    border: 0 !important;
+    width: 100% !important;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+}
+
+#payu_ input[type="radio"] {
+    visibility: hidden;
+    display: inline;
+    .appearance(auto);
+}
+
+.cart-toggle-unselected-options {
+    padding: round(@grid-gutter-width / 3);
+    cursor: pointer;
+    text-decoration: underline;
+    &::after {
+        &:extend(.shp-icon);
+        content: @icon-chevron-down-code;
+        margin-left: .5em;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.cart-hide-unselected-options .radio-wrapper {
+    max-height: 500px;
+    overflow: hidden;
+    .transition(all .2s ease);
+    &.unselected-option {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom-width: 0;
+        border-top-width: 0;
+    }
+}

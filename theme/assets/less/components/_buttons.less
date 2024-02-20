@@ -1,0 +1,31 @@
+.btn, a.btn {
+  padding: @btn-padding-top @btn-padding-right @btn-padding-bottom;
+  border-radius: @btn-border-radius;
+  text-transform: @btn-text-transform;
+  font-weight: @btn-font-weigh;
+  font-size: @btn-font-size;
+  line-height: @btn-line-height;
+  background-color: @brand-default;
+  border-width: @btn-border-width;
+  border-style: @btn-border-style;
+  border-color: @btn-border-color;
+  .hover-focus({
+    background: darken(@brand-default,10%);
+  });
+
+  &-primary, &.btn-primary {
+    background-color: @brand-primary;
+    color: @text-color-reverse;
+    .hover-focus({
+      background: darken(@brand-primary,10%);
+    });
+  }
+
+  &-secondary, &.btn-secondary {
+    background-color: @brand-secondary;
+    color: @text-color-reverse;
+    .hover-focus({
+      background: darken(@brand-secondary,10%);
+    });
+  }
+}
